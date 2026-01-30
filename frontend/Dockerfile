@@ -12,5 +12,5 @@ RUN cp -r dist/*  /var/www/localhost/htdocs/
 
 EXPOSE 80
 
-CMD [ "httpd","D","FOREGROUND"]
+CMD [ "httpd","-D","FOREGROUND"]
 
