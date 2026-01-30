@@ -1,4 +1,4 @@
-FROM node:22-alphine
+FROM node:22-alpine
 
 WORKDIR /app/
 
@@ -8,7 +8,7 @@ RUN apk update && apk add apache2
 
 RUN npm install && npm run build 
 
-RUN cp -r dist/*  /var/www/html/
+RUN cp -r dist/*  /var/www/localhost/htdocs/
 
 EXPOSE 80
 
