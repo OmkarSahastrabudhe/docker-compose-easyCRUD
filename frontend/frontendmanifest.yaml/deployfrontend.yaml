@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+   name: studentapp-frontend-deploy
+   labels:
+      app: studentapp
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+        app: studentapp-frontend-deploy
+   template:
+        metadata:
+           labels: 
+             app: studentapp-frontend-deploy
+        spec: 
+           containers:
+               - name: myfront
+                 image: omkarsahastrabudhe/kubefrontend:v1 
+                 ports:
+                   - containerPort: 80
+                 resources:
+                   requests:
+                     cpu: "200m"
+                     memory: "200Mi"
+                   limits: 
+                     cpu: "300m"
+                     memory: "300Mi"
+                       
+             
+
