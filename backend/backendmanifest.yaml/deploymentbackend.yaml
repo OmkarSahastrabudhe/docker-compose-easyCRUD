@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentapp-backend-deploy
+  labels: 
+    app: studentapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studentapp-backend-deploy
+  template:
+    metadata:
+      labels:
+        app: studentapp-backend-deploy
+    spec:
+      containers:
+      - name: backend
+        image: mysql
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "200Mi"
+          limits:
+            memory: "300Mi"
+            cpu: "300m"
+        ports:
+        - containerPort: 80
+        
+           
+

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: studentapp-db
+  labels:
+    app: studentapp
+spec:
+  replicas: 1
+  serviceName: studentapp-db-svc
+  selector:
+    matchLabels:
+      app: studentapp-db
+  template:
+    metadata:
+      labels:
+        app: studentapp-db
+    spec:
+      containers:
+      - name: dbcontainer
+        image: mariadb
+        resources:
+          requests:
+            cpu: "128m"
+            memory: "200Mi"
+          limits:
+            memory: "300Mi"
+            cpu: "300m"
+        ports:
+        - containerPort: 3306
+        env:
+          - name: "MARIADB_ROOT_PASSWORD"
+            value: "omkar123"
+          - name: "MARIADB_DATABASE"
+            value: "studentapp"  
