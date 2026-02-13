@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: mysql
+        image: omkarsahastrabudhe/kubebackend:v1 
         resources:
           requests:
             cpu: "200m"
