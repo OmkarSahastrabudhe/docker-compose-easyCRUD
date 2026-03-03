@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentapp-backend-deploy
+  labels: 
+    app: studentapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studentapp-backend-deploy
+  template:
+    metadata:
+      labels:
+        app: studentapp-backend-deploy
+    spec:
+      containers:
+      - name: backend
+        image: omkarsahastrabudhe/kubebackend:v1
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "200Mi"
+          limits:
+            memory: "300Mi"
+            cpu: "300m"
+        ports: 
+          - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: studentapp-backend-service
+  labels:
+    app: studentapp
+spec:
+  type: ClusterIP
+  selector:
+    app: studentapp-backend-deploy
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
