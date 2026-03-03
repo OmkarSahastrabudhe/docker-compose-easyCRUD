@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: omkarsahastrabudhe/kubebackend:v1
+        image: omkarsahastrabudhe/s3back:v1 
         resources:
           requests:
             cpu: "200m"
