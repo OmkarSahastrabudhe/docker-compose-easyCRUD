@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentapp-deployment
+  
+  labels:
+    app: studentapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studentapp-backend
+  template:
+    metadata:
+      labels:
+        app: studentapp-backend
+    spec:
+      containers:
+        - name: my-backend
+          image: <image>:<tag>
+          ports:
+            - containerPort: 8080
+          env:
+            - name: NODE_ENV
+              value: "production"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
