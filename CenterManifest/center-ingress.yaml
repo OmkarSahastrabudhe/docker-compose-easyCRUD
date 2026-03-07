@@ -7,13 +7,21 @@ metadata:
 spec:
   ingressClassName: nginx 
   rules:
-  - host: <Host>
+  - host: a4f503b9e094d4a00b3f33711e1a2e11-1548042443.ap-south-1.elb.amazonaws.com 
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: <Service>
+            name: studentapp-frontend-svc
             port: 
-              number: <Port>
+              number: 80
+      - pathType: Prefix
+        path: "/api"
+        backend:
+          service:
+            name: studentapp-backend-svc
+            port:
+              number: 8080
+               
