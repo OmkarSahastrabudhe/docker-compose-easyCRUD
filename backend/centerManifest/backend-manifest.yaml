@@ -20,9 +20,6 @@ spec:
           image: <image>:<tag>
           ports:
             - containerPort: 8080
-          env:
-            - name: NODE_ENV
-              value: "production"
           resources:
             requests:
               cpu: "100m"
