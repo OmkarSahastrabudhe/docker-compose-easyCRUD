@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: my-backend
-          image: <image>:<tag>
+          image: omkarsahastrabudhe/backendfinal:v1 
           ports:
             - containerPort: 8080
           resources:
