@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: studentapp-frontend-svc
+  labels:
+     app: studentapp
+spec:
+  type: ClusterIP
+  selector:
+     app: studentapp-frontend
+  ports:
+     - port: 80
+       targetPort: 80        
