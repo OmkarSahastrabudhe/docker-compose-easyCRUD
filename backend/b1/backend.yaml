@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentapp-deployment
+  
+  labels:
+    app: studentapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studentapp-backend
+  template:
+    metadata:
+      labels:
+        app: studentapp-backend
+    spec:
+      containers:
+        - name: my-backend
+          image: omkarsahastrabudhe/jenkinsbackend:v1
+          ports:
+            - containerPort: 8080
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: studentapp-backend-svc
+  labels:
+    app: studentapp
+spec:
+  type: LoadBalancer
+  selector:
+    app: studentapp-backend
+  ports:
+    - port: 8080
+      targetPort: 8080
