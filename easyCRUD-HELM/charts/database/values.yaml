@@ -1,0 +1,22 @@
+components:
+    statefulset:
+
+         name: studentapp-db-sts    
+         enabled: true
+         replicaCount: 2
+         containerPort: 3306
+    service:
+          name: studentapp-db-svc
+          enabled: true
+    hpa:
+        enabled: true
+        minReplicas: 1
+        maxReplicas: 5
+
+
+
+
+
+
+
+      

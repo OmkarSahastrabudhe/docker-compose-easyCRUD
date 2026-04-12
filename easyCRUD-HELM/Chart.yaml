@@ -1,0 +1,16 @@
+apiVersion: v2
+name: easyCRUD-fullstack
+description: A Helm chart for deploying a Java-based web application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+# Here apiVersions represent helm  version , v2 it is currently latest version of helm
+# the name field here represents Chart name which we right according to our project 
+# In descripition it is optional  you can write chart information as well as your project information 
+#  type field is also optional it is used to specify the type of chart whether it is application or library
+# here version and appVersion is use to specifiy chart version and application version respectively it is also optional but it is good practice to maintain versioning for your charts and applications
+
+
+#dependencies:
+  
